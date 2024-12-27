@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Explore Nepal 2025- A Journey to the Heart of the Himalayas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            position: sticky;
+            top: 0;
+            padding: 15px;
+            z-index: 1000;
+            transition: background 0.5s ease-in-out;
+        }
+        nav:hover {
+            background: linear-gradient(to right, #16222a, #3a6073);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+
+        /* Home Section */
+        #home {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-attachment: fixed;
+            overflow: hidden;
+            animation: fadeIn 2s ease-out;
+        }
+        .overlay {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        #home h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        #home p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+        #home .cta-btn {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #ff5722, #e91e63);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        #home .cta-btn:hover {
+            background: linear-gradient(to right, #e91e63, #ff5722);
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 40px 20px;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #3a3a3a;
+            text-align: center;
+        }
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 40px 20px;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+        }
+        .gallery h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .grid-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 40px 20px;
+            background: linear-gradient(to right, #cfd9df, #e2ebf0);
+        }
+        .reviews h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .review-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .review-box {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 48%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .review-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .review-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        .review-box p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .review-form {
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .review-form input, .review-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            font-size: 1.1rem;
+        }
+        .review-form button {
+            background: linear-gradient(to right, #ff5722, #e91e63);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .review-form button:hover {
+            background: linear-gradient(to right, #e91e63, #ff5722);
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 40px 20px;
+            background: linear-gradient(to right, #bdc3c7, #2c3e50);
+            color: white;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            font-size: 1.1rem;
+        }
+        .contact-form button {
+            background: linear-gradient(to right, #ff5722, #e91e63);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .contact-form button:hover {
+            background: linear-gradient(to right, #e91e63, #ff5722);
+            transform: scale(1.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background: linear-gradient(to right, #3a6073, #16222a);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        footer p {
+            font-size: 1rem;
+        }
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .review-box, .grid-container img {
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .review-box {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            #home h1 {
+                font-size: 2.5rem;
+            }
+            #home p {
+                font-size: 1.2rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body style="background-image: url('https://comasters.com.au/wp-content/uploads/2022/12/Nepal-1-1024x683.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="javascript:void(0)" onclick="toggleSection('home')">Home</a></li>
+        <li><a href="javascript:void(0)" onclick="toggleSection('about')">About</a></li>
+        <li><a href="javascript:void(0)" onclick="toggleSection('gallery')">Gallery</a></li>
+        <li><a href="javascript:void(0)" onclick="toggleSection('reviews')">Reviews</a></li>
+        <li><a href="javascript:void(0)" onclick="toggleSection('contact')">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Home Section -->
+<section id="home">
+    <div class="overlay">
+        <h1>Explore Nepal 2025</h1>
+        <p>Discover the beauty of Nepal’s majestic landscapes, ancient temples, and rich cultural heritage.</p>
+        <a href="javascript:void(0)" onclick="toggleSection('about')" class="cta-btn">Discover More</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about" style="display: none;">
+    <h2>About Nepal</h2>
+    <p>Nepal is a landlocked country nestled in the lap of the majestic Himalayas...</p>
+    <h3>The Rich Culture of Nepal</h3>
+    <p>Nepal is renowned for its rich and diverse culture, shaped by centuries of history, religion, and tradition...</p>
+    <p>Nepal, a landlocked country nestled in the lap of the majestic Himalayas, is a treasure trove of breathtaking landscapes, rich history, and vibrant culture. Kathmandu, the capital city, is a cultural hub known for its ancient temples like Pashupatinath, Swayambhunath (Monkey Temple), and Durbar Square, showcasing the country's artistic heritage. Pokhara, often called the "Gateway to the Himalayas," offers serene lakes like Phewa Lake, stunning views of the Annapurna range, and adventurous activities such as paragliding and trekking. Lumbini, the birthplace of Lord Buddha, is a UNESCO World Heritage Site that attracts spiritual seekers from around the world.
+
+        Chitwan National Park, a haven for wildlife enthusiasts, offers jungle safaris where visitors can spot one-horned rhinoceroses, Bengal tigers, and exotic bird species. Everest Base Camp and the Sagarmatha National Park draw trekkers and climbers to explore the world's highest peak, Mount Everest, and the surrounding pristine landscapes. Janakpur, the birthplace of Goddess Sita, holds great religious significance for Hindus and is home to the ornate Janaki Mandir.</p>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery" style="display: none;">
+    <h2>Gallery</h2>
+    <div class="grid-container">
+        <img src="https://www.miyaradventures.com/wp-content/uploads/2015/07/EverestSunset-1600x789.jpg" alt="Mount Everest">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/4a/95/ac/pashupatinath-is-the.jpg?w=1200&h=-1&s=1" alt="Pashupatinath Temple">
+        <img src="https://i.ytimg.com/vi/a9hNHfxZlkA/maxresdefault.jpg" alt="Pokhara">
+        <img src="https://rangandatta.wordpress.com/wp-content/uploads/2024/05/lumbini-m1.jpg" alt="Lumbini">
+        <img src="https://assets-news.housing.com/news/wp-content/uploads/2022/09/14094509/Places-to-visit-in-Nepal-11.jpg" alt="Chitwan National Park">
+        <img src="https://www.oyorooms.com/blog/wp-content/uploads/2018/06/JANAKPUR.jpg" alt="Ram janaki temple">
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="reviews" style="display: none;">
+    <h2>Visitor Reviews</h2>
+    <div class="review-container">
+        <div class="review-box">
+            <h3>John Doe</h3>
+            <p>"Nepal is a beautiful country with kind-hearted people. The mountains and temples are breathtaking!"</p>
+        </div>
+        <div class="review-box">
+            <h3>Jane Smith</h3>
+            <p>"An unforgettable journey! The food, the culture, and the landscapes are truly mesmerizing."</p>
+        </div>
+        <div class="review-box">
+            <h3>Michael Johnson</h3>
+            <p>"The trek to Everest Base Camp was the highlight of my life. A must-visit for adventure lovers!"</p>
+        </div>
+        <div class="review-box">
+            <h3>Sophia Williams</h3>
+            <p>"Lumbini was such a peaceful and spiritual experience. Nepal's history is fascinating."</p>
+        </div>
+    </div>
+
+    <!-- Review Form -->
+    <div class="review-form">
+        <h3>Leave a Review</h3>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="review" placeholder="Your Review" required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact" style="display: none;">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Explore Nepal. All Rights Reserved. Designed with ❤️ by [Your Name].</p>
+    <p>Follow us on <a href="#">Facebook</a>, <a href="#">Instagram</a>, and <a href="#">Twitter</a>.</p>
+</footer>
+
+<script>
+    function toggleSection(sectionId) {
+        const sections = document.querySelectorAll("section");
+        sections.forEach(section => {
+            section.style.display = "none";
+        });
+        document.getElementById(sectionId).style.display = "block";
+    }
+</script>
+</body>
+</html>
